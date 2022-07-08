@@ -1,0 +1,10 @@
+config/RandomStock.txt
+config/RandomMusician.txt
+config/RandomClient.txt
+config/BSide.txt
+ggg
+30
+0.05
+RESULT_GEN/RandomStock.csv
+RESULT_GEN/RandomMusicians.csv
+RESULT_GEN/RandomClients.csv
