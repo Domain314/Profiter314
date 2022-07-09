@@ -12,8 +12,8 @@
 #include "Misc/Config.hpp"
 #include "Misc/Helper.h"
 
-
 using namespace std;
+
 
 class FileOrganizer {
 public:
@@ -29,6 +29,8 @@ public:
     void saveStocksAsCSV(string name, vector<Day*>* days);
     void saveMusiciansAsCSV(string name, vector<Musician*>* musicians);
     void saveClientsAsCSV(string name, vector<Client*>* clients);
+
+    int readAsMap(map<string, string> *configMap);
 
     vector<Day*>* loadStocksFromCSV();
     vector<Musician*>* loadMusiciansFromCSV();

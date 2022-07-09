@@ -1,5 +1,6 @@
 #include "Holder.hpp"
 
+// Destructor
 Holder::~Holder() {
     for (int i = days->size()-1; i >= 0; --i) {
         delete days->at(i);
@@ -24,6 +25,7 @@ Holder::~Holder() {
     delete fileOrganizer;
 }
 
+// Constructor
 Holder::Holder() {
     fileOrganizer = new FileOrganizer();
     bside = new BSide();
@@ -31,6 +33,9 @@ Holder::Holder() {
     initializeHolder();
 }
 
+
+// Check config, which "mode" is activated. 'g' = generate new Stock/Musicians/Clients
+// load remaining (not generated) S/M/C from last Simulation
 void Holder::initializeHolder() {
     if (config->mode[0] == 'g') {
         days = fileOrganizer->randomStocksFromConfig();
@@ -44,27 +49,29 @@ void Holder::initializeHolder() {
     loadUngeneratedFromCSV();
 }
 
+// check whether S/M/C is empty after generating. yes => load from last Simulation
 void Holder::loadUngeneratedFromCSV() {
     if (days == nullptr) {
-        cout << "Stock empty. Load From CSV: " << config->pathToLoadStock << "\n";
+        cout << "Stock not generated. Load From CSV: " << config->pathToLoadStock << "\n";
         days = fileOrganizer->loadStocksFromCSV();
         vector<string> strArray = fileOrganizer->readFromTXTFile(config->pathToLoadStock, false);
         cout << "loaded";
     }
     if (musicians == nullptr) {
-        cout << "Musicians empty. Load From CSV: " << config->pathToLoadMusicians << "\n";
+        cout << "Musicians not generated. Load From CSV: " << config->pathToLoadMusicians << "\n";
         musicians = fileOrganizer->loadMusiciansFromCSV();
         vector<string> strArray = fileOrganizer->readFromTXTFile(config->pathToLoadMusicians, false);
         cout << "loaded";
     }
     if (clients == nullptr) {
-        cout << "Clients empty. Load From CSV: " << config->pathToLoadClients << "\n";
+        cout << "Clients not generated. Load From CSV: " << config->pathToLoadClients << "\n";
         clients = fileOrganizer->loadClientsFromCSV();
         vector<string> strArray = fileOrganizer->readFromTXTFile(config->pathToLoadClients, false);
         cout << "loaded";
     }
 }
 
+// write results of simulation to disk (as .csv)
 void Holder::finalizeSim(vector<string>* exchanges, vector<string>* NEAR_EUR, vector<string>* EUR_NEAR, vector<string>* nftsSold) {
     fileOrganizer->saveSimToCSV(exchanges, NEAR_EUR, EUR_NEAR, nftsSold);
     fileOrganizer->saveMusiciansAsCSV("RESULT_SIM/Musicians", musicians);

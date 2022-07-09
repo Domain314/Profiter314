@@ -5,7 +5,6 @@
 #include <iostream>
 #include <map>
 #include "Misc/Config.hpp"
-#include "Misc/Globals.h"
 #include "FileOrganizer.hpp"
 
 using namespace std;

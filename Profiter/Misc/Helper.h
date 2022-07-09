@@ -3,45 +3,50 @@
 
 #include <random>
 
-static float randomFloat(float a, float b)
+// Normal distribution. a = average, f = fluctuation
+static float randomFloat(float a, float f)
 {
     static std::random_device rd;
     static std::mt19937 gen(rd());
-    std::normal_distribution<> dis(a, b);
-//    static std::uniform_real_distribution<> dis(a, b);
-    return std::fabs(dis(gen));
+    std::normal_distribution<> dis(a, f);
+    return std::fabs((float)dis(gen));
 }
 
+// Real distribution. [min - max)
+static float randomFloatReal(float min, float max)
+{
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    static std::uniform_real_distribution<> dis(min, max);
+    return std::fabs((float)dis(gen));
+}
+
+// Real distribution. returns between 0.0 and 1.0
 static float randomPercentage()
 {
     static std::random_device rd;
     static std::mt19937 gen(rd());
-//    std::normal_distribution<> dis(a, b);
     std::uniform_real_distribution<> dis(0.0, 1.000000001);
-    return std::fabs(dis(gen));
+    return std::fabs((float)dis(gen));
 }
 
-static int randomInt(int a, int b)
+// Normal distribution. a = average, f = fluctuation
+static int randomInt(int a, int f)
 {
     static std::random_device rd;
     static std::mt19937 gen(rd());
-    std::normal_distribution<> dis(a, b);
-//    static std::uniform_real_distribution<> dis(a, b);
+    std::normal_distribution<> dis(a, f);
     return std::abs((int)dis(gen));
 }
 
+// Real distribution. [min - max)
 static int randomIntReal(int min, int max)
 {
     static std::random_device rd;
     static std::mt19937 gen(rd());
-//    static std::normal_distribution<> dis(a, b);
     std::uniform_real_distribution<> dis(min, max);
     return std::abs((int)dis(gen));
 }
-
-#define randomNum(max) (std::rand()%max)
-
-#define clearScreen() (std::cout << "\033c")
 
 
 #endif //PROFITER3_HELPER_H

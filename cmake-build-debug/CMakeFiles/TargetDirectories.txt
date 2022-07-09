@@ -1,3 +1,0 @@
-/home/domain/Nextcloud/Documents/B-Side/Tools/Profiter3/cmake-build-debug/CMakeFiles/Profiter3.dir
-/home/domain/Nextcloud/Documents/B-Side/Tools/Profiter3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/domain/Nextcloud/Documents/B-Side/Tools/Profiter3/cmake-build-debug/CMakeFiles/rebuild_cache.dir

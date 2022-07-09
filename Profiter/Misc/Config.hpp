@@ -119,8 +119,8 @@ typedef struct Client {
 typedef struct BSide {
     float capitalEUR;
     float capitalNEAR;
-    float feeChange;
-    float feeBSide;
+//    float feeChange;
+//    float feeBSide;
     float exchangeAmount;
 
 }BSide;

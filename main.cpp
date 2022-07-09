@@ -19,15 +19,14 @@ void TESTING() {
 //        cout << "\n";
 //    }
 
-    for (int i = 0; i < 10000; ++i) {
-        cout << randomPercentage() << "\n";
-    }
+//    for (int i = 0; i < 10000; ++i) {
+//        cout << randomPercentage() << "\n";
+//    }
 }
 
 int main() {
 
 //    TESTING();
-
 
     srand(time(NULL));
     Profit* profit = new Profit();

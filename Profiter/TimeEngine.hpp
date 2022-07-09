@@ -25,7 +25,7 @@ public:
 
     void checkMusicianRelease(vector<Musician*>* musicians);
 
-    void changeEURtoNEAR(float stockPrice);
+    void changeEURtoNEAR(float stockPrice, int day);
 
     vector<vector<Client*>*> sortedClientsByHour;
     vector<string> exchanges;
